@@ -1,0 +1,362 @@
+  body {
+            font-family: Georgia, serif;
+            background-color: #f0f4f8;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+ 
+        /* ── Header / Hero ──────────────────────────────────────── */
+        header {
+            position: relative;
+            background-color: #1a6e8a;
+            color: white;
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-image: url('assets/bg.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+ 
+        /* dark scrim so text is always readable over the bg image */
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 55, 70, 0.55);
+        }
+ 
+        header > * { position: relative; z-index: 1; }
+ 
+        .hero-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #a8dcea;
+            margin: 0 0 12px;
+        }
+ 
+        header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.6rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin: 0 0 8px;
+        }
+ 
+        header .tagline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            margin: 0 0 28px;
+            color: #c8e8f2;
+        }
+ 
+        /* Profile picture — floated to top-right of the header */
+        .profile-pic {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+ 
+        /* Navigation */
+        nav { margin-top: 15px; }
+ 
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 3px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+ 
+        nav a:hover {
+            border-bottom: 2px solid white;
+            color: #c8e8f2;
+        }
+ 
+        .nav-dot { color: rgba(255,255,255,0.4); margin: 0 4px; }
+ 
+        .scroll-hint {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.5);
+            animation: bounce 2s infinite;
+        }
+ 
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(5px); }
+        }
+ 
+        /* ── Main / Sections ────────────────────────────────────── */
+        main { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+ 
+        section { margin-bottom: 45px; }
+ 
+        .section-label {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #1a6e8a;
+            margin-bottom: 6px;
+        }
+ 
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            color: #1a6e8a;
+            border-left: 4px solid #1a6e8a;
+            padding-left: 10px;
+            margin: 0 0 20px;
+        }
+ 
+        /* ── Cards ──────────────────────────────────────────────── */
+        .card {
+            background-color: white;
+            border-radius: 6px;
+            padding: 20px 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+ 
+        .card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+            color: #222;
+        }
+ 
+        .card p { line-height: 1.75; margin-bottom: 10px; }
+ 
+        .card ul, .card ol { padding-left: 20px; line-height: 2; }
+ 
+        .card a { color: #1a6e8a; }
+        .card a:hover { text-decoration: underline; }
+ 
+        /* ── Timeline ───────────────────────────────────────────── */
+        .timeline { border-left: 3px solid #1a6e8a; padding-left: 24px; margin-top: 10px; }
+ 
+        .timeline-item { position: relative; margin-bottom: 28px; }
+ 
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1a6e8a;
+            border: 2px solid #f0f4f8;
+        }
+ 
+        .timeline-item--current::before { background: #f0a500; }
+ 
+        .timeline-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            color: #1a6e8a;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+ 
+        .timeline-content {
+            background: white;
+            border-radius: 6px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+ 
+        .timeline-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin: 0 0 6px;
+            color: #1a6e8a;
+        }
+ 
+        .timeline-content p { margin: 0; font-size: 0.93rem; line-height: 1.6; }
+ 
+        /* ── Skills Grid ────────────────────────────────────────── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+ 
+        .skill-card {
+            background: white;
+            border-radius: 6px;
+            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+ 
+        .skill-icon { font-size: 1.6rem; margin-bottom: 8px; }
+ 
+        .skill-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin: 0 0 6px;
+            color: #1a6e8a;
+        }
+ 
+        .skill-card p { font-size: 0.85rem; margin: 0 0 10px; line-height: 1.5; }
+ 
+        .skill-bar {
+            height: 6px;
+            background: #e0eef2;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+ 
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1a6e8a, #2aaccf);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+ 
+        .skill-card ul { padding-left: 18px; margin: 0; font-size: 0.85rem; line-height: 1.8; color: #444; }
+ 
+        .skills-note {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.82rem;
+            color: #6b8fa0;
+            font-style: italic;
+            text-align: center;
+            margin-top: 8px;
+        }
+ 
+        /* ── Projects Grid ──────────────────────────────────────── */
+        .section-intro { margin: 0 0 20px; color: #555; }
+ 
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+ 
+        .project-card {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 3px solid #1a6e8a;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+ 
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(26,110,138,0.15);
+        }
+ 
+        .project-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: #1a6e8a;
+            letter-spacing: 0.1em;
+        }
+ 
+        .project-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin: 6px 0 8px;
+            color: #222;
+        }
+ 
+        .project-card p { font-size: 0.88rem; line-height: 1.6; margin: 0 0 10px; }
+ 
+        .project-tag {
+            display: inline-block;
+            background: #e0eef2;
+            color: #1a6e8a;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+ 
+        .projects-note {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.82rem;
+            color: #6b8fa0;
+            font-style: italic;
+            margin-top: 16px;
+        }
+ 
+        /* ── Contact ────────────────────────────────────────────── */
+        .contact-intro { line-height: 1.8; color: #555; max-width: 500px; }
+ 
+        .contact-links { margin: 24px 0 16px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+ 
+        .contact-btn {
+            display: inline-block;
+            background: #1a6e8a;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+ 
+        .contact-btn:hover { background: #155a73; }
+ 
+        .contact-location {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            color: #555;
+        }
+ 
+        .contact-quote {
+            font-family: Georgia, serif;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+ 
+        /* ── Shared mark ────────────────────────────────────────── */
+        mark {
+            background-color: #c8eaf0;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+ 
+        /* ── Footer ─────────────────────────────────────────────── */
+        footer {
+            text-align: center;
+            background-color: #1a6e8a;
+            color: #d0eaf0;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+ 
+        /* ── Responsive ─────────────────────────────────────────── */
+        @media (max-width: 600px) {
+            .profile-pic { width: 90px; height: 90px; top: 20px; right: 16px; }
+            header h1 { font-size: 2.4rem; }
+            .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+        }
